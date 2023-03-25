@@ -1,6 +1,8 @@
 package org.example;
 
 import org.example.entity.Student;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableAutoConfiguration
 public class SampleController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SampleController.class);
     private Student student = new Student();
 
     // сообщаем сервису, что он должен работать по URL-адресу /hello
@@ -27,12 +30,14 @@ public class SampleController {
 
     @GetMapping("/student")
     public Student getStudent() {
+        LOGGER.info("Received GET request for /student");
         return student;
     }
 
     @PostMapping("/data")
     public ResponseEntity<String> createStudent(@RequestBody Student student) {
         this.student = student;
+        LOGGER.info("Received POST request for /student with body: {}", student);
         // Возвращаем ответ клиенту
         return ResponseEntity.status(HttpStatus.CREATED).body("Студент создан!");
     }

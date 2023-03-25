@@ -17,13 +17,22 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId> <!-- Данная зависимость является базовой для всех проектов Spring Boot. Именно с нее начинается Spring Boot проект -->
-        <version>2.3.7.RELEASE</version>
+        <version>2.6.3</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId> <!-- Данной зависимостью мы говорим о том, что этот проект является веб - проектом-->
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-log4j2</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.6</version>
         </dependency>
     </dependencies>
 
